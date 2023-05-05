@@ -1,4 +1,4 @@
-package co.edu.uco.publiuco.data.dao.relational.sqlserver;
+package co.edu.uco.publiuco.data.dao.relational.postgreSql;
 
 import java.sql.Connection;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import co.edu.uco.publiuco.data.dao.EstadoDAO;
 import co.edu.uco.publiuco.entities.EstadoEntity;
 
-public final class EstadoSqlServerDAO implements EstadoDAO{
+public final class EstadoPostgreSqlDAO implements EstadoDAO{
 	
-	public EstadoSqlServerDAO(final Connection connection) {
+	public EstadoPostgreSqlDAO(final Connection connection) {
 		
 	}
 

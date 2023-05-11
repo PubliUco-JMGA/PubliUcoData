@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.LectorDAO;
 import co.edu.uco.publiuco.entities.LectorEntity;
 
-public class LectorPostgreSqlDAO implements LectorDAO {
+public final class LectorPostgreSqlDAO implements LectorDAO {
 
 	public LectorPostgreSqlDAO(final Connection connection) {
 		

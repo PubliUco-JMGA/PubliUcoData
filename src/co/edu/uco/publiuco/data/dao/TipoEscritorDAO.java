@@ -6,8 +6,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.entities.TipoEscritorEntity;
 
 public interface TipoEscritorDAO {
-	
-	void create(TipoEscritorEntity entity);
+
 
 	List<TipoEscritorEntity> read(TipoEscritorEntity entity);
 

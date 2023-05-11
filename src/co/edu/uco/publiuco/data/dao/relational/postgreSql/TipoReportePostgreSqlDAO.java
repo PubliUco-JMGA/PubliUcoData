@@ -6,15 +6,9 @@ import java.util.List;
 import co.edu.uco.publiuco.data.dao.TipoReporteDAO;
 import co.edu.uco.publiuco.entities.TipoReporteEntity;
 
-public class TipoReportePostgreSqlDAO implements TipoReporteDAO {
+public final class TipoReportePostgreSqlDAO implements TipoReporteDAO {
 
 	public TipoReportePostgreSqlDAO(final Connection connection) {
-		
-	}
-	
-	@Override
-	public void create(TipoReporteEntity entity) {
-		// TODO Auto-generated method stub
 		
 	}
 

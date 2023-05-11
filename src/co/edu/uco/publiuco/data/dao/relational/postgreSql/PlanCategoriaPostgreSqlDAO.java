@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.PlanCategoriaDAO;
 import co.edu.uco.publiuco.entities.PlanCategoriaEntity;
 
-public class PlanCategoriaPostgreSqlDAO implements PlanCategoriaDAO {
+public final class PlanCategoriaPostgreSqlDAO implements PlanCategoriaDAO {
 
 	public PlanCategoriaPostgreSqlDAO(final Connection connection) {
 		

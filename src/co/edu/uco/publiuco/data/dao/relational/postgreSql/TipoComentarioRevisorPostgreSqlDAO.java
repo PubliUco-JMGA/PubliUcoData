@@ -6,15 +6,9 @@ import java.util.List;
 import co.edu.uco.publiuco.data.dao.TipoComentarioRevisorDAO;
 import co.edu.uco.publiuco.entities.TipoComentarioRevisorEntity;
 
-public class TipoComentarioRevisorPostgreSqlDAO implements TipoComentarioRevisorDAO {
+public final class TipoComentarioRevisorPostgreSqlDAO implements TipoComentarioRevisorDAO {
 	
 	public TipoComentarioRevisorPostgreSqlDAO(final Connection connection) {
-		
-	}
-
-	@Override
-	public void create(TipoComentarioRevisorEntity entity) {
-		// TODO Auto-generated method stub
 		
 	}
 

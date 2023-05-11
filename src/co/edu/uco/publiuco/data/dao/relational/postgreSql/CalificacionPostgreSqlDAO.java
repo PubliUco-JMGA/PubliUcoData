@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.CalificacionDAO;
 import co.edu.uco.publiuco.entities.CalificacionEntity;
 
-public class CalificacionPostgreSqlDAO implements CalificacionDAO {
+public final class CalificacionPostgreSqlDAO implements CalificacionDAO {
 
 	public CalificacionPostgreSqlDAO(final Connection connection) {
 		

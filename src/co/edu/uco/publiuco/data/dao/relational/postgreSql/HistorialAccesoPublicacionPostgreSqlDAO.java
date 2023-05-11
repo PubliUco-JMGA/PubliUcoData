@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.HistorialAccesoPublicacionDAO;
 import co.edu.uco.publiuco.entities.HistorialAccesoPublicacionEntity;
 
-public class HistorialAccesoPublicacionPostgreSqlDAO implements HistorialAccesoPublicacionDAO {
+public final class HistorialAccesoPublicacionPostgreSqlDAO implements HistorialAccesoPublicacionDAO {
 
 	public HistorialAccesoPublicacionPostgreSqlDAO(final Connection connection) {
 		

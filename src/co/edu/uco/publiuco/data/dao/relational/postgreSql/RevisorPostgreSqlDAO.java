@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.RevisorDAO;
 import co.edu.uco.publiuco.entities.RevisorEntity;
 
-public class RevisorPostgreSqlDAO implements RevisorDAO {
+public final class RevisorPostgreSqlDAO implements RevisorDAO {
 
 	public RevisorPostgreSqlDAO(final Connection connection) {
 		

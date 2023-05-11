@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.ComentarioLectorDAO;
 import co.edu.uco.publiuco.entities.ComentarioLectorEntity;
 
-public class ComentarioLectorPostgreSqlDAO implements ComentarioLectorDAO {
+public final class ComentarioLectorPostgreSqlDAO implements ComentarioLectorDAO {
 
 	public ComentarioLectorPostgreSqlDAO(final Connection connection) {
 		

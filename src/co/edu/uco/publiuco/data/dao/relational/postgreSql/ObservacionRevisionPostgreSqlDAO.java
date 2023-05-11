@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.ObservacionRevisionDAO;
 import co.edu.uco.publiuco.entities.ObservacionRevisionEntity;
 
-public class ObservacionRevisionPostgreSqlDAO implements ObservacionRevisionDAO {
+public final class ObservacionRevisionPostgreSqlDAO implements ObservacionRevisionDAO {
 
 	public ObservacionRevisionPostgreSqlDAO(final Connection connection) {
 		

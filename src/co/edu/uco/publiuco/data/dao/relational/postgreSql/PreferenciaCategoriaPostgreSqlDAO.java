@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.PreferenciaCategoriaDAO;
 import co.edu.uco.publiuco.entities.PreferenciaCategoriaEntity;
 
-public class PreferenciaCategoriaPostgreSqlDAO implements PreferenciaCategoriaDAO {
+public final class PreferenciaCategoriaPostgreSqlDAO implements PreferenciaCategoriaDAO {
 
 	public PreferenciaCategoriaPostgreSqlDAO(final Connection connection) {
 		

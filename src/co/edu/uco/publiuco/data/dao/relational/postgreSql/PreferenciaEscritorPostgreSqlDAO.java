@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.PreferenciaEscritorDAO;
 import co.edu.uco.publiuco.entities.PreferenciaEscritorEntity;
 
-public class PreferenciaEscritorPostgreSqlDAO implements PreferenciaEscritorDAO {
+public final class PreferenciaEscritorPostgreSqlDAO implements PreferenciaEscritorDAO {
 
 	public PreferenciaEscritorPostgreSqlDAO(final Connection connection) {
 		

@@ -7,8 +7,6 @@ import java.util.UUID;
 import co.edu.uco.publiuco.entities.TipoIdentificacionEntity;
 
 public interface TipoIdentificacionDAO {
-	
-	void create(TipoIdentificacionEntity entity);
 
 	List<TipoIdentificacionEntity> read(TipoIdentificacionEntity entity);
 

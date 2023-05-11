@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.CategoriaAdministradorCategoriaDAO;
 import co.edu.uco.publiuco.entities.CategoriaAdministradorCategoriaEntity;
 
-public class CategoriaAdministradorCategoriaPostgreSqlDAO implements CategoriaAdministradorCategoriaDAO {
+public final class CategoriaAdministradorCategoriaPostgreSqlDAO implements CategoriaAdministradorCategoriaDAO {
 
 	public CategoriaAdministradorCategoriaPostgreSqlDAO(final Connection connection) {
 		

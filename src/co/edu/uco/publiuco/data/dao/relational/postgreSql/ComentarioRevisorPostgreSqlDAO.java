@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.ComentarioRevisorDAO;
 import co.edu.uco.publiuco.entities.ComentarioRevisorEntity;
 
-public class ComentarioRevisorPostgreSqlDAO implements ComentarioRevisorDAO{
+public final class ComentarioRevisorPostgreSqlDAO implements ComentarioRevisorDAO{
 
     public ComentarioRevisorPostgreSqlDAO(final Connection connection) {
 		

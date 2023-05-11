@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.VersionDAO;
 import co.edu.uco.publiuco.entities.VersionEntity;
 
-public class VersionPostgreSqlDAO implements VersionDAO {
+public final class VersionPostgreSqlDAO implements VersionDAO {
 
 	public VersionPostgreSqlDAO(final Connection connection) {
 		

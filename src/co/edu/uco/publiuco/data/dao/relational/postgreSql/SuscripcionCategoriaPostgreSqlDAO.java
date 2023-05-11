@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.SuscripcionCategoriaDAO;
 import co.edu.uco.publiuco.entities.SuscripcionCategoriaEntity;
 
-public class SuscripcionCategoriaPostgreSqlDAO implements SuscripcionCategoriaDAO {
+public final class SuscripcionCategoriaPostgreSqlDAO implements SuscripcionCategoriaDAO {
 
 	public SuscripcionCategoriaPostgreSqlDAO(final Connection connection) {
 		

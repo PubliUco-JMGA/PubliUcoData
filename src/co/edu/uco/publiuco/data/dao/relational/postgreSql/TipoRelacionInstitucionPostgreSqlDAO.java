@@ -14,12 +14,6 @@ public final class TipoRelacionInstitucionPostgreSqlDAO implements TipoRelacionI
 	}
 
 	@Override
-	public final void create(final TipoRelacionInstitucionEntity entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public final List<TipoRelacionInstitucionEntity> read(final TipoRelacionInstitucionEntity entity) {
 		// TODO Auto-generated method stub
 		return null;

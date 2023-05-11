@@ -7,15 +7,9 @@ import java.util.List;
 import co.edu.uco.publiuco.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.publiuco.entities.TipoIdentificacionEntity;
 
-public class TipoIdentificacionPostgreSqlDAO implements TipoIdentificacionDAO {
+public final class TipoIdentificacionPostgreSqlDAO implements TipoIdentificacionDAO {
 	
 	public TipoIdentificacionPostgreSqlDAO(final Connection connection) {
-		
-	}
-
-	@Override
-	public void create(TipoIdentificacionEntity entity) {
-		// TODO Auto-generated method stub
 		
 	}
 

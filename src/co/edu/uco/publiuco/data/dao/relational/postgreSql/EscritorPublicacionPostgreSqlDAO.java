@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.EscritorPublicacionDAO;
 import co.edu.uco.publiuco.entities.EscritorPublicacionEntity;
 
-public class EscritorPublicacionPostgreSqlDAO implements EscritorPublicacionDAO{
+public final class EscritorPublicacionPostgreSqlDAO implements EscritorPublicacionDAO{
 
 	public EscritorPublicacionPostgreSqlDAO(final Connection connection) {
 		

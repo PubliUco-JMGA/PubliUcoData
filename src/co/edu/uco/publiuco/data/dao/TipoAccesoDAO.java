@@ -6,8 +6,6 @@ import java.util.UUID;
 import co.edu.uco.publiuco.entities.TipoAccesoEntity;
 
 public interface TipoAccesoDAO {
-	
-	void create(TipoAccesoEntity entity);
 
 	List<TipoAccesoEntity> read(TipoAccesoEntity entity);
 

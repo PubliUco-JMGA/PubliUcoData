@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.PerfilDAO;
 import co.edu.uco.publiuco.entities.PerfilEntity;
 
-public class PerfilPostgreSqlDAO implements PerfilDAO {
+public final class PerfilPostgreSqlDAO implements PerfilDAO {
 	
 	public PerfilPostgreSqlDAO(final Connection connection) {
 		

@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.RespuestaDAO;
 import co.edu.uco.publiuco.entities.RespuestaEntity;
 
-public class RespuestaPostgreSqlDAO implements RespuestaDAO {
+public final class RespuestaPostgreSqlDAO implements RespuestaDAO {
 
 	public RespuestaPostgreSqlDAO(final Connection connection) {
 		

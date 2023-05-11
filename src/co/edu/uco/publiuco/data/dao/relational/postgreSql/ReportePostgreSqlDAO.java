@@ -7,7 +7,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.data.dao.ReporteDAO;
 import co.edu.uco.publiuco.entities.ReporteEntity;
 
-public class ReportePostgreSqlDAO implements ReporteDAO{
+public final class ReportePostgreSqlDAO implements ReporteDAO{
 
 	public ReportePostgreSqlDAO(final Connection connection) {
 		

@@ -3,7 +3,6 @@ package co.edu.uco.publiuco.data.dao.factory;
 import co.edu.uco.publiuco.data.dao.*;
 
 import co.edu.uco.publiuco.data.dao.factory.relational.postgresql.PostgreSqlServerDAOFactory;
-import co.edu.uco.publiuco.data.dao.factory.relational.sqlserver.SqlServerDAOFactory;
 
 public abstract class DAOFactory {
 	
@@ -13,7 +12,7 @@ public abstract class DAOFactory {
 		
 		switch (factory) {
 		case SQLSERVER: {
-			daoFactory = new SqlServerDAOFactory();
+			daoFactory = new PostgreSqlServerDAOFactory();
 			break;
 		}
 		case POSTGRESQL: {

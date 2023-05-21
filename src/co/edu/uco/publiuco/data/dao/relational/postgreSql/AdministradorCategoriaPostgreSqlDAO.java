@@ -182,11 +182,13 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 	@Override
 	protected List<AdministradorCategoriaEntity> executeQuery(PreparedStatement preparedStatement) {
 		try (var resultSet = preparedStatement.executeQuery()){
+			/*
 			while(resultSet.next()) {
 				var entityTmp = new EstadoEntity(resultSet.getObject("identificador", UUID.class),resultSet.getObject("nombre"),resultSet.getObject("descripcion"),null);
 				
 				entityTmp.add(entityTmp);
 			}
+			*/
 			
 		}catch(final SQLException exception) {
 			var userMessage = "Se ha presentado un problema tratando de ejecutar la consulta la información del Administrador Categoria";

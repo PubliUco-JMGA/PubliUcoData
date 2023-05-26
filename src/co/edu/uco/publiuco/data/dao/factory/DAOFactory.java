@@ -2,7 +2,7 @@ package co.edu.uco.publiuco.data.dao.factory;
 
 import co.edu.uco.publiuco.data.dao.*;
 
-import co.edu.uco.publiuco.data.dao.factory.relational.postgresql.PostgreSqlServerDAOFactory;
+import co.edu.uco.publiuco.data.dao.factory.relational.postgresql.PostgreSqlDaoFactory;
 
 public abstract class DAOFactory {
 	
@@ -12,11 +12,11 @@ public abstract class DAOFactory {
 		
 		switch (factory) {
 		case SQLSERVER: {
-			daoFactory = new PostgreSqlServerDAOFactory();
+			daoFactory = new PostgreSqlDaoFactory();
 			break;
 		}
 		case POSTGRESQL: {
-			daoFactory = new PostgreSqlServerDAOFactory();
+			daoFactory = new PostgreSqlDaoFactory();
 			break;
 		}
 		default:
@@ -25,9 +25,9 @@ public abstract class DAOFactory {
 		return daoFactory;
 	}
 	
-	protected abstract void openConection();
+	protected abstract void openConnection();
 	
-	public abstract void closeConection();
+	public abstract void closeConnection();
 	
 	public abstract void initTransaction();
 	

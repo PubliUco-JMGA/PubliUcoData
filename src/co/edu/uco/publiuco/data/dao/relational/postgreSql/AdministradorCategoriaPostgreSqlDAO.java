@@ -1,4 +1,4 @@
-package co.edu.uco.publiuco.data.dao.relational.postgreSql;
+package co.edu.uco.publiuco.data.dao.relational.postgresql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +12,6 @@ import co.edu.uco.publiuco.crosscutting.exception.PubliucoException;
 import co.edu.uco.publiuco.data.dao.AdministradorCategoriaDAO;
 import co.edu.uco.publiuco.data.dao.factory.relational.SqlDAO;
 import co.edu.uco.publiuco.entities.AdministradorCategoriaEntity;
-import co.edu.uco.publiuco.entities.EstadoEntity;
-import co.edu.uco.publiuco.entities.TipoEstadoEntity;
 import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
 import co.edu.uco.publiuco.utils.UtilUUID;
@@ -43,6 +41,7 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 		}catch(final Exception exception) {
 			var userMessage = "Se ha presentado un problema inesperado tratando de registrar la información del administrador Categoria";
 			var technicalMessage = "Se ha presentado un problema inesperado dentro del método create dentro de la clase Administrador Categoria, por favor revise la traza completa del error";
+			throw PubliucoDataException.create(technicalMessage, userMessage, exception);	
 		}
 	}
 
@@ -51,10 +50,10 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 		var sqlStatement = new StringBuilder();
 		var parameters = new ArrayList<>();
 		
-		sqlStatement.append(prepareSelect());
-		sqlStatement.append(prepareFrom());
-		sqlStatement.append(prepareWhere(entity, parameters));
-		sqlStatement.append(prepareOrderBy());
+		sqlStatement.append(preparedSelect());
+		sqlStatement.append(preparedFrom());
+		sqlStatement.append(preparedWhere(entity, parameters));
+		sqlStatement.append(preparedOrderBy());
 		
 		try (var preparedStatement = getConnection().prepareStatement(sqlStatement.toString())){
 			setParameters(preparedStatement, parameters);
@@ -89,6 +88,8 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 		}catch(final Exception exception) {
 			var userMessage = "Se ha presentado un problema inesperado tratando de modificar la información del administrador Categoria";
 			var technicalMessage = "Se ha presentado un problema inesperado dentro del método modificar dentro de la clase Administrador Categoria, por favor revise la traza completa del error";
+			
+			throw PubliucoDataException.create(technicalMessage, userMessage, exception);
 		}
 		
 	}
@@ -116,17 +117,17 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 	}
 
 	@Override
-	protected final String prepareSelect() {
+	protected final String preparedSelect() {
 		return "SELECT identificador, nombre, descripcion";
 	}
 
 	@Override
-	protected final String prepareFrom() {
+	protected final String preparedFrom() {
 		return "FROM \"AdministradorCategoria\"";
 	}
 
 	@Override
-	protected final String prepareWhere(final AdministradorCategoriaEntity entity, List<Object> paramethers) {
+	protected final String preparedWhere(final AdministradorCategoriaEntity entity, List<Object> paramethers) {
 		final var where = new StringBuilder("");
 		var setWhere = true;
 		paramethers = UtilObject.getDefault(paramethers, new ArrayList<>());
@@ -151,7 +152,7 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 	}
 
 	@Override
-	protected final String prepareOrderBy() {
+	protected final String preparedOrderBy() {
 		return "ORDER BY persona.nombre ASC";
 	}
 
@@ -181,14 +182,14 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 
 	@Override
 	protected List<AdministradorCategoriaEntity> executeQuery(PreparedStatement preparedStatement) {
-		try (var resultSet = preparedStatement.executeQuery()){
-			/*
+		/*try (var resultSet = preparedStatement.executeQuery()){
+			
 			while(resultSet.next()) {
 				var entityTmp = new EstadoEntity(resultSet.getObject("identificador", UUID.class),resultSet.getObject("nombre"),resultSet.getObject("descripcion"),null);
 				
 				entityTmp.add(entityTmp);
 			}
-			*/
+			
 			
 		}catch(final SQLException exception) {
 			var userMessage = "Se ha presentado un problema tratando de ejecutar la consulta la información del Administrador Categoria";
@@ -202,6 +203,7 @@ public final class AdministradorCategoriaPostgreSqlDAO extends SqlDAO<Administra
 			throw PubliucoDataException.create(technicalMessage, userMessage, exception);
 
 		}
+		*/
 		return null;
 		
 	}

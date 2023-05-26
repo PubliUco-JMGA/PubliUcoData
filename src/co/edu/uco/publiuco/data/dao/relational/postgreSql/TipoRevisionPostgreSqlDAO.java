@@ -1,4 +1,4 @@
-package co.edu.uco.publiuco.data.dao.relational.postgreSql;
+package co.edu.uco.publiuco.data.dao.relational.postgresql;
 
 import java.sql.Connection;
 import java.util.List;

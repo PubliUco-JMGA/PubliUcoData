@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import co.edu.uco.publiuco.entities.RespuestaEntity;
-import co.edu.uco.publiuco.entities.RevisionEntity;
 
 public interface RespuestaDAO {
 	

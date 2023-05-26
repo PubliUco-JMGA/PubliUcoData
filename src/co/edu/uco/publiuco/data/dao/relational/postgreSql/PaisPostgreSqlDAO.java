@@ -1,9 +1,7 @@
-package co.edu.uco.publiuco.data.dao.relational.postgreSql;
+package co.edu.uco.publiuco.data.dao.relational.postgresql;
 
 import java.sql.Connection;
 import java.util.List;
-import java.util.UUID;
-
 import co.edu.uco.publiuco.data.dao.PaisDAO;
 import co.edu.uco.publiuco.entities.PaisEntity;
 

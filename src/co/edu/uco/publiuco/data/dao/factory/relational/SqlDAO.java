@@ -24,10 +24,10 @@ public abstract class SqlDAO<E> {
 	private final void setConnection(final Connection connection) {
 		this.connection = connection;
 	}
-	protected abstract String prepareSelect();
-	protected abstract String prepareFrom();
-	protected abstract String prepareWhere(E entity,List<Object> paramethers);
-	protected abstract String prepareOrderBy();
+	protected abstract String preparedSelect();
+	protected abstract String preparedFrom();
+	protected abstract String preparedWhere(E entity,List<Object> paramethers);
+	protected abstract String preparedOrderBy();
 	protected abstract void setParameters(PreparedStatement preparedStatement, List<Object> parameters);
 	protected abstract List<E> executeQuery(PreparedStatement preparedStatement);
 

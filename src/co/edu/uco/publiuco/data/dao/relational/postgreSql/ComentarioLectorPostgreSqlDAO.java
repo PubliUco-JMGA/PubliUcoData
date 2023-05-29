@@ -11,10 +11,7 @@ import java.util.UUID;
 import co.edu.uco.publiuco.crosscutting.exception.PubliucoDataException;
 import co.edu.uco.publiuco.data.dao.ComentarioLectorDAO;
 import co.edu.uco.publiuco.data.dao.factory.relational.SqlDAO;
-import co.edu.uco.publiuco.entities.CategoriaEntity;
 import co.edu.uco.publiuco.entities.ComentarioLectorEntity;
-import co.edu.uco.publiuco.entities.EstadoEntity;
-import co.edu.uco.publiuco.entities.TipoEstadoEntity;
 import co.edu.uco.publiuco.utils.Messages;
 import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
@@ -34,8 +31,8 @@ public class ComentarioLectorPostgreSqlDAO extends SqlDAO<ComentarioLectorEntity
 			preparedStatement.setObject(1, entity.getIdentificador());
 			preparedStatement.setObject(2, entity.getLector().getIdentificador());
 			preparedStatement.setObject(3, entity.getPublicacion().getIdentificador());
-			preparedStatement.setBoolean(4, entity.tienePadre());
-			preparedStatement.setObject(5, entity.tienePadre() ? entity.getComentarioPadre().getIdentificador() : null);
+			preparedStatement.setBoolean(4, entity.isTienePadre());
+			preparedStatement.setObject(5, entity.isTienePadre() ? entity.getComentarioPadre().getIdentificador() : null);
 			preparedStatement.setTimestamp(6, Timestamp.valueOf(entity.getFechaComentario() ));
 			preparedStatement.setObject(7, entity.getEstado().getIdentificador());
 
@@ -135,7 +132,7 @@ public class ComentarioLectorPostgreSqlDAO extends SqlDAO<ComentarioLectorEntity
 				where.append(setWhere ? "WHERE " : "AND ").append("e.nombre = ? ");
 				setWhere = false;
 			}
-			if (!UtilUUID.isDefault(entity.getComentarioPadre().getIdentificador())) {
+			if (entity.isTienePadre()? !UtilUUID.isDefault(entity.getComentarioPadre().getIdentificador()):false) {
 				parameters.add(entity.getComentarioPadre().getIdentificador());
 				where.append(setWhere ? "WHERE " : "AND ");
 				setWhere = false;
@@ -202,4 +199,5 @@ public class ComentarioLectorPostgreSqlDAO extends SqlDAO<ComentarioLectorEntity
 		return null;
 
 	}
+	
 }

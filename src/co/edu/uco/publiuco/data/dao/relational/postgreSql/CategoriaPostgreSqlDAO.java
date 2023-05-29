@@ -55,36 +55,37 @@ public class CategoriaPostgreSqlDAO extends SqlDAO<CategoriaEntity> implements C
 
 	@Override
 	protected final String preparedFrom() {
-		return "FROM \"Categoria\" c JOIN \"Estado\" ec ON ec.identificador = c.estado JOIN \"TipoEstado\" teec ON teec.identificador = ec.\"tipoEstado\"; ";
+		return "FROM \"Categoria\" c JOIN \"Estado\" ec ON ec.identificador = c.estado JOIN \"TipoEstado\" teec ON teec.identificador = ec.\"tipoEstado\" ";
 	}
 
 	@Override
 	protected final String preparedWhere(final CategoriaEntity entity, List<Object> parameters) {
 		final var where = new StringBuilder("");
-		parameters = UtilObject.getDefault(parameters, new ArrayList<>()); 
+		parameters = UtilObject.getDefault(parameters, new ArrayList<>());
 		var setWhere = true;
 		
 		if (!UtilObject.isNull(entity)){
 			
 			if (!UtilUUID.isDefault(entity.getIdentificador())) {
 				parameters.add(entity.getIdentificador());
-				where.append("WHERE e.identificador = ? ");
+				where.append(setWhere ? "WHERE " : "AND ").append("c.identificador = ? ");
 				setWhere = false;
 			}
 			if (!UtilText.isEmpty(entity.getNombre())) {
 				parameters.add(entity.getNombre());
-				where.append(setWhere ? "WHERE " : "AND ").append("e.nombre = ? ");
+				where.append(setWhere ? "WHERE " : "AND ").append("c.nombre = ? ");
 				setWhere = false;
 			}
-			if (!UtilUUID.isDefault(entity.getCategoriaPadre().getIdentificador())) {
-				parameters.add(entity.getCategoriaPadre().getIdentificador());
-				where.append(setWhere ? "WHERE " : "AND ");
-				setWhere = false;
+			if (!UtilObject.isNull(entity.getCategoriaPadre()) &&  (!UtilUUID.isDefault(entity.getCategoriaPadre().getIdentificador()))) {
+					parameters.add(entity.getCategoriaPadre().getIdentificador());
+					where.append(setWhere ? "WHERE " : "AND ").append("c.\"categoriaPadre\"  = ? ");
+					setWhere = false;
+				
 			}
-			if (UtilUUID.isDefault(entity.getEstado().getIdentificador())) {
+			if (!UtilUUID.isDefault(entity.getEstado().getIdentificador())) {
 				parameters.add(entity.getEstado().getIdentificador());
-				where.append(setWhere ? "WHERE " : "AND ");
-				setWhere = false;
+				where.append(setWhere ? "WHERE " : "AND ").append(" ec.identificador = ? ");
+				setWhere = false; 
 			}
 		}	
 		return where.toString();
@@ -92,7 +93,7 @@ public class CategoriaPostgreSqlDAO extends SqlDAO<CategoriaEntity> implements C
 
 	@Override
 	protected final String preparedOrderBy() {
-		return "ORDER BY nombre ASC";
+		return "ORDER BY c.nombre ASC";
 	}
 	
 	@Override
@@ -125,10 +126,13 @@ public class CategoriaPostgreSqlDAO extends SqlDAO<CategoriaEntity> implements C
 						.setDescripcion(resultSet.getString("descripcion"))
 						.setTienePadre(resultSet.getBoolean("tienePadre"))
 						.setEstado(EstadoEntity.create().setIdentificador(resultSet.getObject("identificadorestado", UUID.class)).setNombre(resultSet.getString("nombreestado"))
-								.setTipo(TipoEstadoEntity.create().setIdentificador(resultSet.getObject("identificadortipoestado", UUID.class)).setNombre(resultSet.getString("nombretipoestado"))))
-						.setCategoriaPadre(UtilUUID.isDefault(resultSet.getObject("identificadorCategoriaPadre", UUID.class)) ? read(CategoriaEntity.create().setIdentificador(resultSet.getObject("identificadorCategoriaPadre", UUID.class))).get(0) : null);
-						
+								.setTipo(TipoEstadoEntity.create().setIdentificador(resultSet.getObject("identificadortipoestado", UUID.class)).setNombre(resultSet.getString("nombretipoestado"))));
+				if (!UtilObject.isNull(resultSet.getObject("identificadorCategoriaPadre", UUID.class)) && !UtilUUID.isDefault(resultSet.getObject("identificadorCategoriaPadre", UUID.class))) {
+					entityTmp.setCategoriaPadre(read(CategoriaEntity.create().setIdentificador(resultSet.getObject("identificadorCategoriaPadre", UUID.class))).get(0));
+				}
 				result.add(entityTmp);
+				
+				
 			}
 			return result;
 			
@@ -139,11 +143,12 @@ public class CategoriaPostgreSqlDAO extends SqlDAO<CategoriaEntity> implements C
 			throw PubliucoDataException.create(Messages.CategoriaSql.TECHNICAL_MESSAGE_EXECUTE_JAVA_EXCEPTION, Messages.CategoriaSql.USER_MESSAGE_EXECUTE, exception);
 
 		}		
-	}
+	}	
+	
 
 	@Override
 	public void create(CategoriaEntity entity) {
-	
+		
 	}
 
 	@Override
@@ -154,5 +159,5 @@ public class CategoriaPostgreSqlDAO extends SqlDAO<CategoriaEntity> implements C
 	@Override
 	public void delete(UUID entity) {
 		
-	}	
+	}
 }
